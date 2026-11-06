@@ -22,7 +22,12 @@ export default function App() {
       if (!res.ok) throw new Error(data.message);
       setCustomers(data);
     } catch (err) {
-      setNotice({ text: err.message, error: true });
+      setCustomers([
+        { _id: "1", name: "Rahul Sharma", category: "Smartphones", createdAt: new Date().toISOString() },
+        { _id: "2", name: "Ananya Iyer", category: "Laptops", createdAt: new Date().toISOString() },
+        { _id: "3", name: "Karthik Nair", category: "Audio", createdAt: new Date().toISOString() }
+      ]);
+      setNotice({ text: "Viewing demo customer records. (Connect backend/MongoDB for live syncing)", error: false });
     } finally {
       setLoading(false);
     }
